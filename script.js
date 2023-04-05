@@ -5,28 +5,16 @@ container.style.width = "1000px";
 container.style.height = "1000px";
 document.body.append(container);
 
-let toggleBlack = false;
-let count = 0;
-
 for (let i = 0; i < 64; i++) {
-	count++;
+	const randomR = Math.floor(Math.random() * 256);
+	const randomG = Math.floor(Math.random() * 256);
+	const randomB = Math.floor(Math.random() * 256);
+
 	const tile = document.createElement("div");
 	tile.style.width = "12.5%";
 	tile.style.height = "12.5%";
 
-	if (toggleBlack) {
-		tile.style.background = "#000";
-	} else {
-		tile.style.background = "red";
-	}
-
-	// toggle background
-	toggleBlack = toggleBlack ? false : true;
-
-	if (count === 8) {
-		toggleBlack = toggleBlack ? false : true;
-		count = 0;
-	}
+	tile.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
 
 	container.append(tile);
 }
